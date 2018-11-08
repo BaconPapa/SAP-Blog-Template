@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NavBar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <nav id="navBar">
+        <ul>
+            <li class="nav-item" id='home' onclick="NavBtnClick(this)"><span>Home</span></li>
+            <li class="nav-item" id='blog' onclick="NavBtnClick(this)"><span>Blog</span></li>
+            <li class="nav-item" id='gallery' onclick="NavBtnClick(this)"><span>Gallery</span></li>
+            <li class="nav-item" id='about' onclick="NavBtnClick(this)"><span>About</span></li>
+            <li class="nav-item" id='contact' onclick="NavBtnClick(this)"><span>Contact</span></li>
+        </ul>
+    </nav>
+    <div class="btn-open" id="toggle-btn" onclick="NavToggleClick()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- <div class="title" id="page-tittle">Home</div> -->
+    <div id="content-wrapper">
+    </div>
+</body>
+
+</html>
