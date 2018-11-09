@@ -81,7 +81,6 @@ nav.active ul li span {
 
 .site-wrapper.nav-open{
     position: fixed;
-    width: calc(100% - 150px);
     transform: translateX(150px);
 }
 
