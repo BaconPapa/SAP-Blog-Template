@@ -1,7 +1,13 @@
 function NavToggleClick() {
-    document.getElementById('toggle-btn').classList.toggle('active');
+    let siteWrapper = document.getElementById('site-wrapper');
+    siteWrapper.classList.toggle('nav-open');
     document.getElementById('navBar').classList.toggle('active');
-    document.getElementById('content-wrapper').classList.toggle('inactive');
+    document.body.parentNode.style.overflow = "hidden";
+    let Covery = () => {
+        document.body.parentNode.style.overflow = "auto";
+        siteWrapper.removeEventListener('transitionend', Covery);
+    }
+    siteWrapper.addEventListener('transitionend', Covery);
 }
 
 function NavBtnClick(btn) {
@@ -19,7 +25,7 @@ function CheckContent() {
     if (TempContent() in contentObject) {
         AddContent(contentObject[TempContent()]);
     } else {
-        ajax.open('get','/content/' + window.location.hash.substring(1) + '.html');
+        ajax.open('get', '/content/' + window.location.hash.substring(1) + '.html');
         ajax.send();
         let ajaxReady = () => {
             if (ajax.readyState == 4 && ajax.status == 200) {
@@ -41,10 +47,7 @@ function AddContent(contentString) {
             postChild.remove();
             ContentAppend(contentString, wrapper);
         });
-
     } else {
-        console.log('2');
-
         ContentAppend(contentString, wrapper);
     }
 
@@ -54,8 +57,10 @@ function ContentAppend(contentString, contentWrapper) {
     let content = document.createElement('div');
     content.className = 'content fade-in';
     content.innerHTML = contentString;
+    document.body.parentNode.style.overflow = "hidden";
     let fadeInEvent = () => {
         content.classList.remove('fade-in');
+        document.body.parentNode.style.overflow = "auto";
         canClick = true;
         content.removeEventListener('animationend', fadeInEvent);
     }
