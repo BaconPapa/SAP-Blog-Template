@@ -19,7 +19,7 @@ function CheckContent() {
     if (TempContent() in contentObject) {
         AddContent(contentObject[TempContent()]);
     } else {
-        ajax.open('get', window.location.hash.substring(1) + '.html');
+        ajax.open('get','/content/' + window.location.hash.substring(1) + '.html');
         ajax.send();
         let ajaxReady = () => {
             if (ajax.readyState == 4 && ajax.status == 200) {
